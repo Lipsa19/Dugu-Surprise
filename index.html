@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love You Dugu 💙</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #e3f2fd, #ffffff);
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.start-screen{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.start-screen h1{
+  color:#1976d2;
+  font-size:2.2em;
+}
+
+.start-btn{
+  padding:12px 25px;
+  font-size:1.1em;
+  border:none;
+  border-radius:25px;
+  background:#1976d2;
+  color:white;
+  cursor:pointer;
+  margin-top:20px;
+}
+
+.main{
+  display:none;
+  padding:20px;
+}
+
+.slideshow{
+  max-width:320px;
+  margin:20px auto;
+}
+
+.slideshow img{
+  width:100%;
+  border-radius:20px;
+  display:none;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.slideshow img.active{
+  display:block;
+}
+
+.quote{
+  font-size:1.1em;
+  font-style:italic;
+  margin:20px;
+}
+
+.end{
+  margin-top:40px;
+  font-size:1.2em;
+  color:#0d47a1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="start-screen" id="start">
+  <h1>🎁 A Small Surprise 💙</h1>
+  <button class="start-btn" onclick="start()">Click here Dugu</button>
+</div>
+
+<div class="main" id="main">
+  <h1>💙 I Love You Dugu 💙</h1>
+  <p>My little sunshine 🌈</p>
+
+  <div class="slideshow">
+    <img src="photo1.jpg" class="active">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+  </div>
+
+  <div class="quote" id="quote">
+    “To my cutest Dugu, you are my forever happiness 💙”
+  </div>
+
+  <div class="end">
+    With all my love,<br>
+    <strong>Kunu 💙</strong>
+  </div>
+</div>
+
+<script>
+function start(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("main").style.display="block";
+}
+
+const images=document.querySelectorAll(".slideshow img");
+const quotes=[
+  "To my cutest Dugu, you are my forever happiness 💙",
+  "Your smile makes my whole world brighter 🌟",
+  "I love you more than words can say, my little hero 🧸",
+  "No matter how big you grow, you’ll always be my baby 💙",
+  "You are loved today, tomorrow, and always 💫"
+];
+
+let i=0;
+setInterval(()=>{
+  images.forEach(img=>img.classList.remove("active"));
+  images[i].classList.add("active");
+  document.getElementById("quote").innerText=quotes[i%quotes.length];
+  i=(i+1)%images.length;
+},3000);
+</script>
+
+</body>
+</html>
